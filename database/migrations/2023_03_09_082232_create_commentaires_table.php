@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
+            $table->text("body");
+            $table->timestamp("dateAjout");
             $table->timestamps();
         });
     }
