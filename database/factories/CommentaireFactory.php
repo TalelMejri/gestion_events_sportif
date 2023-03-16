@@ -17,7 +17,8 @@ class CommentaireFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "body"=>$this->faker->words(3,true),
+            "dateAjout"=>now()
         ];
     }
 }

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("nom",100);
             $table->enum("genre",['HOMME','FEMME']);
             $table->string("poids",20);
+
+            $table->foreignId("evenement_sportif_id")->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }

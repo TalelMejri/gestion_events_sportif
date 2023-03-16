@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->text("body");
             $table->timestamp("dateAjout");
+            $table->unsignedBigInteger("commentable_id");
+            $table->String("commentable_type");
             $table->timestamps();
         });
     }

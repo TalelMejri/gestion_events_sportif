@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string("nom",60);
             $table->string("prenom",60);
-            $table->enum("sexe",['HOMME','FEMME']);
+            $table->enum("genre",['HOMME','FEMME']);
             $table->string("photo")->nullable();
             $table->integer("score")->default(0)->unsigned();
+            $table->foreignId("categorie_id")->constrained()->onDelete("cascade");
+            $table->foreignId("equipe_id")->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }
