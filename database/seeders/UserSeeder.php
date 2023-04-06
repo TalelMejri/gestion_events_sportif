@@ -6,6 +6,7 @@ use App\Models\Athlete;
 use App\Models\Categorie;
 use App\Models\Equipe;
 use App\Models\EvenementSportif;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Sequence;
@@ -20,6 +21,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+
+        $roles=Role::factory(4)->state(new Sequence(
+            ['nom'=>"Admin"],
+            ['nom'=>"Chef departement"],
+            ['nom'=>"Etudiant"],
+        ))->create();
+
         User::factory(2)->has(EvenementSportif::factory(1)
           ->has(Categorie::factory(3)
               ->state(new Sequence(
@@ -44,7 +52,13 @@ class UserSeeder extends Seeder
               )
           )
           ->hasCommentaires(2)
-        )
+        )/*->has(Role::factory(2)->state(new Sequence(
+            ['nom'=>"Admin"],
+            ['nom'=>"Chef departement"],
+            ['nom'=>"Etudiant"],
+        )))*/
+        ->hasAttached($roles)
+        //->hasAttached(Role::inRandomOrder()->limit(2)->get())
         ->create();
         }
      }
