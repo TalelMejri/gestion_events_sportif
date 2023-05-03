@@ -16,9 +16,12 @@ class EquipeFactory extends Factory
      */
     public function definition()
     {
+        $width=50;
+        $height=80;
+        $path=$this->faker->image('storage/images',$width,$height,'equipe',true,true,'equipe',false);
         return [
             "nom"=>$this->faker->company(),
-            "logo"=>$this->faker->imageUrl(360,360,true)
+            "logo"=>$path//$this->faker->imageUrl(360,360,true)
         ];
     }
 }

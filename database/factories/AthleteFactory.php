@@ -16,10 +16,13 @@ class AthleteFactory extends Factory
      */
     public function definition()
     {
+        $width=200;
+        $height=200;
+        $path=$this->faker->image('storage/images',$width,$height,'person',true,true,'person',false);
         return [
             "nom"=>$this->faker->firstName(),
             "prenom"=>$this->faker->lastName(),
-            "photo"=>$this->faker->imageUrl(360,360,true)
+            "photo"=>$path//$this->faker->imageUrl(360,360,true)
         ];
     }
 }

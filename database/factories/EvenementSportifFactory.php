@@ -16,11 +16,14 @@ class EvenementSportifFactory extends Factory
      */
     public function definition()
     {
+        $width=200;
+        $height=200;
+        $path=$this->faker->image('storage/images',$width,$height,'sport',true,true,'sport',false);
         return [
             "nom"=>$this->faker->sentence(),
             "description"=>$this->faker->words(2,true),
             "lieu"=>$this->faker->state(),
-            "poster"=>$this->faker->imageUrl(360,360,true),
+            "poster"=>$path,//$this->faker->imageUrl(360,360,true),
             "dateDebut"=>$this->faker->date(),
             "dateFin"=>$this->faker->date()
         ];
