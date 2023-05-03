@@ -18,7 +18,7 @@ class AthleteFactory extends Factory
     {
         $width=200;
         $height=200;
-        $path=$this->faker->image('storage/images',$width,$height,'person',true,true,'person',false);
+        $path=$this->faker->image('storage/app/public/images',$width,$height,'person',true,true,'person',false);
         return [
             "nom"=>$this->faker->firstName(),
             "prenom"=>$this->faker->lastName(),

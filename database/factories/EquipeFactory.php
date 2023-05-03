@@ -18,7 +18,7 @@ class EquipeFactory extends Factory
     {
         $width=50;
         $height=80;
-        $path=$this->faker->image('storage/images',$width,$height,'equipe',true,true,'equipe',false);
+        $path=$this->faker->image('storage/app/public/images',$width,$height,'equipe',true,true,'equipe',false);
         return [
             "nom"=>$this->faker->company(),
             "logo"=>$path//$this->faker->imageUrl(360,360,true)

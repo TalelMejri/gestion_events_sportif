@@ -18,7 +18,7 @@ class EvenementSportifFactory extends Factory
     {
         $width=200;
         $height=200;
-        $path=$this->faker->image('storage/images',$width,$height,'sport',true,true,'sport',false);
+        $path=$this->faker->image('storage/app/public/images',$width,$height,'sport',true,true,'sport',false);
         return [
             "nom"=>$this->faker->sentence(),
             "description"=>$this->faker->words(2,true),
