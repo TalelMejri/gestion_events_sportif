@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Athlete>
  */
@@ -22,7 +22,7 @@ class AthleteFactory extends Factory
         return [
             "nom"=>$this->faker->firstName(),
             "prenom"=>$this->faker->lastName(),
-            "photo"=>$path//$this->faker->imageUrl(360,360,true)
+            "photo"=>config('app.url').'/storage'.Str::after($path,'public/')//$this->faker->imageUrl(360,360,true)
         ];
     }
 }

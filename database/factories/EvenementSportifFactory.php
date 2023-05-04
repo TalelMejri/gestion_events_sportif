@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\EvenementSportif>
  */
@@ -23,7 +23,7 @@ class EvenementSportifFactory extends Factory
             "nom"=>$this->faker->sentence(),
             "description"=>$this->faker->words(2,true),
             "lieu"=>$this->faker->state(),
-            "poster"=>$path,//$this->faker->imageUrl(360,360,true),
+            "posterUrl"=>config('app.url').'/storage/'.Str::after($path,'public/'),
             "dateDebut"=>$this->faker->date(),
             "dateFin"=>$this->faker->date()
         ];
