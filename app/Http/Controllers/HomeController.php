@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\EvenementSportif;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -16,6 +18,8 @@ class HomeController extends Controller
 
     public function __invoke(Request $request)
     {
+        Auth::logout();
+        Auth::login(User::first());
         $eventSportifs=EvenementSportif::all();
         $data=[
             "titel"=>"Evènement sportif",

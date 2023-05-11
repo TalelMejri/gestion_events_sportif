@@ -9,6 +9,8 @@ class EvenementSportif extends Model
 {
     use HasFactory;
 
+    protected $guarded=[];
+
     public function organisateur(){
         return $this->belongsTo(User::class);
     }
