@@ -19,5 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',HomeController::class)->name('home');
-Route::resource('events',EventSportifController::class);
+//Route::resource('events',EventSportifController::class);
 
+Route::prefix('organisateur')->middleware(['auth','can:organisateur-view'])->group(function (){
+    Route::resource('/events',EventSportifController::class);
+});
+
+Route::prefix('admin')->middleware(['auth','can:admin-view'])->group(function (){
+    Route::get('/users',[AdminDashboardController::class,'userDashboard'])->name('admin.users');
+    Route::get('/events',[AdminDashboardController::class, 'eventDashboard'])->name('admin.events');
+});
