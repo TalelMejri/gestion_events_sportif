@@ -3,6 +3,11 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+
+use App\Models\EvenementSportif;
+use App\Models\User;
+use App\Policies\EventSportifPolicy;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -13,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
+        EvenementSportif::class=>EventSportifPolicy::class,
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
@@ -23,8 +29,13 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
+      //  $this->registerPolicies();
 
-        //
+        Gate::define('admin-view',function (User $user){
+            return $user->role=='Admin';
+        });
+        Gate::define('organisateur-view',function (User $user){
+            return $user->role=='Organisateur';
+        });
     }
 }
