@@ -13,6 +13,12 @@ use Illuminate\Support\Str;
 
 class EventSportifController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(EvenementSportif::class, 'eventSportif');
+    }
+
     /**
      * Display a listing of the resource.
      *
