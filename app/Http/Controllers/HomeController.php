@@ -18,8 +18,8 @@ class HomeController extends Controller
 
     public function __invoke(Request $request)
     {
-        Auth::logout();
-        Auth::login(User::first());
+         Auth::logout();
+        // Auth::login(User::first());
         $eventSportifs=EvenementSportif::all();
         $data=[
             "titel"=>"Evènement sportif",
