@@ -23,9 +23,8 @@ class UserSeeder extends Seeder
     {
 
         $roles=Role::factory(4)->state(new Sequence(
+            ['nom'=>"Organisateur"],
             ['nom'=>"Admin"],
-            ['nom'=>"Chef departement"],
-            ['nom'=>"Etudiant"],
         ))->create();
 
         User::factory(2)->has(EvenementSportif::factory(1)
