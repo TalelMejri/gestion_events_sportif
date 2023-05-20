@@ -10,7 +10,7 @@ class RegisterResponseImpl implements RegisterResponse
     public function toResponse($request)
     {
         if($request['role']=='Organisateur'){
-            return redirect()->route('eventSportifs.index');
+            return redirect()->route('events.index');
         }
         elseif ($request['role']=='Admin'){
             return redirect()->route('admin');

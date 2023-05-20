@@ -8,9 +8,8 @@ class LoginResponseImpl implements LoginResponse
 
     public function toResponse($request)
     {
-
         if($request->user()->role=='Organisateur'){
-            return redirect()->route('eventSportifs.index');
+            return redirect()->route('events.index');
         }
         elseif ($request->user()->role=='Admin'){
             return redirect()->route('admin.events');
