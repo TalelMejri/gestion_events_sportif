@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
          Auth::logout();
         // Auth::login(User::first());
-        $eventSportifs=EvenementSportif::all();
+        $eventSportifs=EvenementSportif::paginate(2);
         $data=[
             "titel"=>"Evènement sportif",
             "description"=>"Liste des evénement sportifs",

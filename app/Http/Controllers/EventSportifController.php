@@ -14,10 +14,10 @@ use Illuminate\Support\Str;
 class EventSportifController extends Controller
 {
 
-    public function __construct()
+    /*public function __construct()
     {
-        $this->authorizeResource(EvenementSportif::class, 'eventSportif');
-    }
+        $this->authorizeResource(EvenementSportif::class, 'events');
+    }*/
 
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class EventSportifController extends Controller
      */
     public function index()
     {
-        $events=auth()->user()->evenementSportif;
+        $events=Auth::user()->evenementSportif()->paginate(2);
         $data=[
             "titel"=>$description="Mes évènement sportifs",
             "description"=>$description,

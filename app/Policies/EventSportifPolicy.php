@@ -18,7 +18,8 @@ class EventSportifPolicy
      */
     public function viewAny(User $user)
     {
-       return true;
+       dd("police 1");
+       return $user->role=="Organisateur";
     }
 
     /**
@@ -30,7 +31,8 @@ class EventSportifPolicy
      */
     public function view(User $user, EvenementSportif $evenementSportif)
     {
-        return true;
+        dd("police 2");
+        return $user->role=="Organisateur";
     }
 
     /**
@@ -41,6 +43,7 @@ class EventSportifPolicy
      */
     public function create(User $user)
     {
+        dd("police 3");
         return $user->role=="Organisateur";
     }
 
@@ -53,6 +56,7 @@ class EventSportifPolicy
      */
     public function update(User $user, EvenementSportif $evenementSportif)
     {
+        dd("police 4");
         return ((($user->role=='Organisateur')&&($user->id==$evenementSportif->user_id))||($user->role=='Admin'));
     }
 
@@ -65,6 +69,7 @@ class EventSportifPolicy
      */
     public function delete(User $user, EvenementSportif $evenementSportif)
     {
+        dd("police 5");
         return (($user->role=="Admin")&&($user->id==$evenementSportif->user_id));
     }
 
@@ -77,6 +82,7 @@ class EventSportifPolicy
      */
     public function restore(User $user, EvenementSportif $evenementSportif)
     {
+        dd("police 6");
         return $user->role=="Admin";
     }
 
