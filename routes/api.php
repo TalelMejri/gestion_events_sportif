@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\EventSportifController;
 use App\Http\Controllers\HomeController;
@@ -24,10 +25,7 @@ Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
 
 
-Route::prefix('organisateur')->middleware(['auth:sanctum','can:organisateur-view'])->group(function (){
 
-    Route::apiResource('eventSportifs',EventSportifController::class);
-});
 /*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

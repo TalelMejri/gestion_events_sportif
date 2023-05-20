@@ -11,4 +11,5 @@
             </div>
         @endforeach
     </div>
+    {{$eventsSportifs->links()}}
 </div>
